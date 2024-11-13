@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:41:57 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/13 16:17:07 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:39:50 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ ScalarConverter::~ScalarConverter(void){}
 ScalarConverter::ScalarConverter(const ScalarConverter &origin)
 {
     *this = origin;
-  
 }
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter &origin)
