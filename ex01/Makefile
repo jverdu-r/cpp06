@@ -6,7 +6,7 @@
 #    By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 16:45:08 by jverdu-r          #+#    #+#              #
-#    Updated: 2024/11/13 16:50:35 by jverdu-r         ###   ########.fr        #
+#    Updated: 2024/11/28 16:35:31 by jverdu-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,16 +17,19 @@ CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
 SRC = src/Serializer.cpp \
 		src/main.cpp
 
-TARGET = Serializer
+NAME = Serializer
 
-all: $(TARGET)
+LDFLAGS = -std=c++98
+RM = /bin/rm -rf
+OBJ = $(SRC:.cpp=.o)
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+$(NAME): $(OBJ)
+	c++ $(LDFLAGS) $(OBJ) -o $(NAME)
 
+all: $(NAME)
 clean:
-	rm -f $(TARGET)
-
-re: all
-
-PHONY: all clean re
+	$(RM) $(OBJ)
+fclean: clean
+	$(RM) $(NAME)
+re: fclean all
+.PHONY: all clean fclean re

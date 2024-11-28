@@ -6,7 +6,7 @@
 #    By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 16:56:06 by jverdu-r          #+#    #+#              #
-#    Updated: 2024/11/13 17:24:02 by jverdu-r         ###   ########.fr        #
+#    Updated: 2024/11/28 16:36:07 by jverdu-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,19 @@ CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 SRC = src/main.cpp
 
-TARGET = Base
+NAME = Base
 
-all: $(TARGET)
+LDFLAGS = -std=c++98
+RM = /bin/rm -rf
+OBJ = $(SRC:.cpp=.o)
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+$(NAME): $(OBJ)
+	c++ $(LDFLAGS) $(OBJ) -o $(NAME)
 
+all: $(NAME)
 clean:
-	rm -f $(TARGET)
-
-re: all
+	$(RM) $(OBJ)
+fclean: clean
+	$(RM) $(NAME)
+re: fclean all
+.PHONY: all clean fclean re

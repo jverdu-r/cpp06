@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:41:57 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/13 16:39:50 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:44:51 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void ScalarConverter::convert(std::string input)
     
     std::cout << "\033[33m" << "double: " << "\033[0m";
     double doubleValue = std::strtod(input.c_str(), &end);
-    if (*end == '\0' || floatValue < std::numeric_limits<double>::epsilon() || floatValue > std::numeric_limits<double>::epsilon())
+    if (*end == '\0' || doubleValue < std::numeric_limits<double>::epsilon() || doubleValue > std::numeric_limits<double>::epsilon())
         std::cout << std::fixed << std::setprecision(4) << "\033[32m" << doubleValue << "\033[0m" << std::endl;
     else
         std::cout << "\033[31m" << "imposible" << "\033[0m" << std::endl;
